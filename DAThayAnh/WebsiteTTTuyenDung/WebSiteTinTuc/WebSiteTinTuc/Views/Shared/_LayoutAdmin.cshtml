@@ -1,0 +1,148 @@
+﻿
+@{ Layout = null;}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Admin</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i" rel="stylesheet">
+    <!-- Bootstrap -->
+
+
+    <link rel="shortcut icon" href="~/assets/images/2.ico" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/ad.css" rel="stylesheet" />
+    <link href="~/Content/tuyendung.css" rel="stylesheet" />
+    <link href="~/Content/chosse/chosen.min.css" rel="stylesheet" />
+    <link href="~/summernote-master/dist/summernote.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container-fluid display-table">
+        <div class="row display-table-row" style="margin: 1px; padding: 0px;">
+            <!--side menu-->
+
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell valign-top" id="side-menu">
+                <h1 class="hidden-xs hidden-sm" style="color:white">Trang Admin</h1>
+                <ul>
+                    <li class="link">
+                        <a href="~/ADMIN/QuanLyAD/TrangChuAdmin">
+                            <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                            <span class="hidden-xs hidden-sm">Bảng Điều Khiển</span>
+                        </a>
+                    </li>
+                    <li class="link active">
+                        <a href="#collapse-post" data-toggle="collapse" aria-controls="collapse-post">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <span class="hidden-xs hidden-sm">Tin tuyển dụng</span>
+
+                        </a>
+                        <ul class="collapse collapseable" id="collapse-post">
+                            <li>@Html.ActionLink("Xem tin", "Xemtin", "QuanlyAD", "ADMIN")</li>
+
+                        </ul>
+                    </li>
+                    <li class="link">
+                        <a href="~/ADMIN/QuanLyAD/Tindadang">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <span class="hidden-xs hidden-sm">Tin đã đăng</span>
+                        </a>
+                    </li>
+
+                    <li class="link">
+                        <a href="~/ADMIN/QuanLyAD/QuanLyTaiKhoan">
+                            <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                            <span class="hidden-xs hidden-sm">Tài Khoản</span>
+                        </a>
+                    </li>
+
+                    <li class="link setting-btn">
+                        <a href="~/ADMIN/QuanLyAD/DanhSachNopDon">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            <span class="hidden-xs hidden-sm">Danh sách nộp đơn</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell ">
+                <div class="row">
+                    <header id="nav-header" class="clearfix">
+                        <div class="col-md-5">
+                            <nav class="navbar-default pull-left">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </nav>
+
+
+                        </div>
+                        <div class="col-md-7">
+                            <ul class="pull-right">
+                                <li id="chaomung" class="hidden-xs">Chào mừng tới trang Admin trang Admin</li>
+
+
+                                <li>
+                                    <a href="~/Home/TrangChu" class="logout">
+                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                        Log-out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </header>
+                </div>
+                <div id="content">
+                    @RenderBody()
+                </div>
+                <div class="row">
+                    <footer id="admin-footer" class="clearfix">
+                        <div class="pull-left">
+                            <b>CopyRight</b>&copy; 2017
+                        </div>
+                        <div class="pull-right">AdminPage</div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Content/chosse/chosen.jquery.min.js"></script>
+    <script src="~/summernote-master/dist/summernote.min.js"></script>
+    <script src="~/Scripts/admin.js"></script>
+    <script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: '0ops, nothing found!' },
+        '.chosen-select-width':{width:"95%"}
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+    </script>
+
+    <script type="text/javascript">
+
+    {
+        $(".summernote").summernote({
+            height: 200
+        });
+    }
+    </script>
+</body>
+</html>

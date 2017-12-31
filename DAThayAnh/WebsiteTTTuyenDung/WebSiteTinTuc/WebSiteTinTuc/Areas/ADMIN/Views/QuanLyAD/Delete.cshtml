@@ -1,0 +1,75 @@
+﻿@model WebSiteTinTuc.Models.TinTuc
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có chắc chắn muốn xóa tin tức này?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenCT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenCT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mucluong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mucluong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Khuvuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Khuvuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thoihan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thoihan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinhanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinhanh)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Xemtin")
+        </div>
+    }
+</div>

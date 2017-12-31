@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+<section id="service" class="service">
+    <div class="container">
+        <div class="row">
+
+            <div class="main_service_area sections text-center">
+                <div class="head_title text-center">
+                    <h2>Nhà tuyển dụng IT hàng đầu Việt Nam</h2>
+                    <div class="separator"></div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="single_service">
+                        <div class="single_service_icon">
+
+                            <img src="~/assets/images/TMA_logo.ico" " />
+                        </div>
+
+                        <h3><a href="http://tma.vn/">Công ty phần mềm TMA solution</a></h3>
+                        <p>
+                            TMA Solution được thành lập vào năm 1970 , là công ty phần mềm hàng đầu Việt Nam . Với sự phát triển bền vững về nhân lực , hiện nay TMA đã xây dựng được đội ngũ hơn 1900 kỹ sư trẻ , nhiệt huyết luôn nhận được sự tin cậy , đánh giá cao từ phía khách hàng.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="single_service">
+                        <div class="single_service_icon">
+                            <img src="/assets/images/FPT-software.ico" alt="" />
+                        </div>
+
+                        <h3><a href="https://fpt.com.vn/">Công ty cổ phần FPT</a></h3>
+                        <p>
+                            FPT Software bắt đầu bằng một giấc mơ. Giấc mơ sẽ xây dựng một công ty thành công ở tầm cỡ quốc tế trong điều kiện đất nước còn nhiều khó khăn . Giấc mơ sẽ có hàng chục nghìn thanh niên Việt Nam có điều kiện làm việc trong môi trường quốc tế .
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="single_service">
+                        <div class="single_service_icon">
+                            <img src="/assets/images/global cybersoft_logo.ico" alt="" />
+                        </div>
+
+                        <h3><a href="http://www.globalcybersoft.com/en/">Công ty TNHH Global CyberSoft</a></h3>
+                        <p>
+                            Global Cybersoft là nhà cung cấp giải pháp công nghệ thông tin toàn cầu hàng đầu được thành lập tại Califonia vào tháng 7 năm 2000 và là công ty của tập đoàn tư vấn Hitachi kể từ tháng 10 năm 2014.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="main_about sections">
+                <div class="head_title text-center">
+                    <h2>TIN TỨC TUYỂN DỤNG</h2>
+                </div>
+
+                <div class="main_about_content_area">
+                    <p class="test"><b>Tin mới</b></p>
+                    <a href="~/Home/Tinuutien"><input type="button" value="Tin ưu tiên"></a>
+                    <a href="~/Home/Tinkhonguutien"><input type="button" value="Tin không ưu tiên"></a>
+
+
+                    @foreach (var item in Model)
+                    {
+
+
+                        <div class="container-fluid">
+
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-2" style="background-color:white;text-align:center;height:150px ">
+                                            <img src="~/assets/images/@item.Hinhanh" style="height:120px;" />
+                                        </div>
+                                        <div class="col-sm-7">
+
+
+                                            <table class="table table-hover">
+
+                                                <tr>
+                                                    <th>Vị trí</th>
+                                                    <th>Mức lương</th>
+                                                    <th>Khu vực</th>
+                                                    <th>Thời hạn</th>
+                                                    <th></th>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td>@item.Vitri</td>
+                                                    <td>@item.Mucluong</td>
+                                                    <td>@item.Khuvuc</td>
+                                                    <td>@item.Thoihan</td>
+
+                                                    @*@if (@Session["TaiKhoan"] != null)
+                                            {
+                                                <td> @Html.ActionLink("Nộp đơn", "NopDon", new { @IDTT = item.IDTT }) </td>
+                                            }
+                                            @if (@Session["TaiKhoan"] == null)
+                                            {
+                                                <td>@Html.ActionLink("Nộp đơn","TrangNopDon", new { @IDTT = item.IDTT })</td>
+                                            }*@
+
+                                                </tr>
+
+
+                                            </table>
+
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <b>Yêu cầu tuyển dụng</b>
+                                            <p>@item.Yeucau</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }       <!-- bar 1 -->
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section id="team" class="team">
+    <div class="container">
+        <div class="row">
+            <div class="main_team sections">
+                <div class="head_title text-center">
+                    <h2>Đội ngũ thiết kế</h2>
+                    <div class="separator"></div>
+                    <p>
+                        Các thành viên năng động luôn có gằng hoàn thành tốt sản phẩm của mình để phục vụ cho nhu cầu của khách hàng.
+                    </p>
+
+                </div>
+
+
+                <div class="col-sm-9">
+                    <div class="row" style="margin-left:200px;">
+
+                        <div class="single_team">
+                            <div class="col-sm-4">
+                                <div class="single_item">
+                                    <img src="/assets/images/chung.jpg" alt="" />
+                                    <div class="single_team_overlay">
+                                        <h4>Bá Chung</h4>
+
+                                        <div class="team_socail">
+                                            <a href="https://www.facebook.com/ChungThai.7596"><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="single_item">
+                                    <img style="height:339.23px" src="~/assets/images/dicho.jpg" alt="" />
+                                    <div class="single_team_overlay">
+                                        <h4>Thanh Nhàn</h4>
+
+                                        <div class="team_socail">
+                                            <a href="https://www.facebook.com/xirim.le812"><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="single_item">
+                                    <img src="~/assets/images/tai07.jpg" alt="" />
+                                    <div class="single_team_overlay">
+                                        <h4>Đức Tài</h4>
+
+                                        <div class="team_socail">
+                                            <a href="https://www.facebook.com/oi.caijithe?fref=ts"><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="single_team">
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>

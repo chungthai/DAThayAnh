@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TUYENDUNGITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="IDAD" />
+          </Key>
+          <Property Name="IDAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tendangnhap" Type="varchar" MaxLength="50" />
+          <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CONGTY">
+          <Key>
+            <PropertyRef Name="IDCT" />
+          </Key>
+          <Property Name="IDCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tendangnhap" Type="varchar" MaxLength="50" />
+          <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+          <Property Name="Tencongty" Type="nvarchar" MaxLength="100" />
+          <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT" Type="char" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="IDND" />
+          </Key>
+          <Property Name="IDND" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Repeat Password" Type="varchar" MaxLength="50" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="NOPDON">
+          <Key>
+            <PropertyRef Name="IDDon" />
+          </Key>
+          <Property Name="IDDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTT" Type="int" />
+          <Property Name="NguoiNop" Type="nvarchar" MaxLength="50" />
+          <Property Name="CongTy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NgayNop" Type="datetime" />
+          <Property Name="Vitri" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hanchot" Type="datetime" />
+          <Property Name="Yeucau" Type="ntext" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDT" Type="char" MaxLength="20" />
+          <Property Name="Gioithieubanthan" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TinTuc">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenCT" Type="nvarchar" MaxLength="100" />
+          <Property Name="Vitri" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mucluong" Type="varchar" MaxLength="50" />
+          <Property Name="Khuvuc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Thoihan" Type="datetime" />
+          <Property Name="Hinhanh" Type="varchar" MaxLength="50" />
+          <Property Name="NgayGui" Type="datetime" />
+          <Property Name="Yeucau" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TinTucTuyenDung">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenCT" Type="nvarchar" MaxLength="100" />
+          <Property Name="Vitri" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mucluong" Type="nvarchar" MaxLength="100" />
+          <Property Name="Khuvuc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Thoihan" Type="datetime" />
+          <Property Name="Yeucau" Type="ntext" />
+          <Property Name="Hinhanh" Type="varchar" MaxLength="50" />
+          <Property Name="Uutien" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TUYENDUNGIT.dbo.DANHSACHDON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DANHSACHDON">
+          <Key>
+            <PropertyRef Name="IDDon" />
+          </Key>
+          <Property Name="TenCT" Type="nvarchar" MaxLength="100" />
+          <Property Name="NguoiNop" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vitri" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mucluong" Type="nvarchar" MaxLength="100" />
+          <Property Name="Khuvuc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Thoihan" Type="datetime" />
+          <Property Name="Yeucau" Type="ntext" />
+          <Property Name="IDDon" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TUYENDUNGITModelStoreContainer">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONGTY" EntityType="Self.CONGTY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NOPDON" EntityType="Self.NOPDON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TinTuc" EntityType="Self.TinTuc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TinTucTuyenDung" EntityType="Self.TinTucTuyenDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANHSACHDON" EntityType="Self.DANHSACHDON" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DANHSACHDON].[TenCT] AS [TenCT], 
+    [DANHSACHDON].[NguoiNop] AS [NguoiNop], 
+    [DANHSACHDON].[Vitri] AS [Vitri], 
+    [DANHSACHDON].[Mucluong] AS [Mucluong], 
+    [DANHSACHDON].[Khuvuc] AS [Khuvuc], 
+    [DANHSACHDON].[Thoihan] AS [Thoihan], 
+    [DANHSACHDON].[Yeucau] AS [Yeucau], 
+    [DANHSACHDON].[IDDon] AS [IDDon]
+    FROM [dbo].[DANHSACHDON] AS [DANHSACHDON]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TUYENDUNGITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="IDAD" />
+          </Key>
+          <Property Name="IDAD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CONGTY">
+          <Key>
+            <PropertyRef Name="IDCT" />
+          </Key>
+          <Property Name="IDCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tencongty" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="IDND" />
+          </Key>
+          <Property Name="IDND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Repeat_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NOPDON">
+          <Key>
+            <PropertyRef Name="IDDon" />
+          </Key>
+          <Property Name="IDDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTT" Type="Int32" />
+          <Property Name="NguoiNop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CongTy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayNop" Type="DateTime" Precision="3" />
+          <Property Name="Vitri" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Hanchot" Type="DateTime" Precision="3" />
+          <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Gioithieubanthan" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TinTuc">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vitri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mucluong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Thoihan" Type="DateTime" Precision="3" />
+          <Property Name="Hinhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NgayGui" Type="DateTime" Precision="3" />
+          <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TinTucTuyenDung">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vitri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mucluong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Thoihan" Type="DateTime" Precision="3" />
+          <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hinhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Uutien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DANHSACHDON">
+          <Key>
+            <PropertyRef Name="IDDon" />
+          </Key>
+          <Property Name="TenCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NguoiNop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vitri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mucluong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Thoihan" Type="DateTime" Precision="3" />
+          <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDDon" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TUYENDUNGITEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" />
+          <EntitySet Name="CONGTY" EntityType="Self.CONGTY" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="NOPDON" EntityType="Self.NOPDON" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TinTuc" EntityType="Self.TinTuc" />
+          <EntitySet Name="TinTucTuyenDung" EntityType="Self.TinTucTuyenDung" />
+          <EntitySet Name="DANHSACHDON" EntityType="Self.DANHSACHDON" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TUYENDUNGITModelStoreContainer" CdmEntityContainer="TUYENDUNGITEntities1">
+          <EntitySetMapping Name="ADMIN">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.ADMIN">
+              <MappingFragment StoreEntitySet="ADMIN">
+                <ScalarProperty Name="IDAD" ColumnName="IDAD" />
+                <ScalarProperty Name="Tendangnhap" ColumnName="Tendangnhap" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONGTY">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.CONGTY">
+              <MappingFragment StoreEntitySet="CONGTY">
+                <ScalarProperty Name="IDCT" ColumnName="IDCT" />
+                <ScalarProperty Name="Tendangnhap" ColumnName="Tendangnhap" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="Tencongty" ColumnName="Tencongty" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANG">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="IDND" ColumnName="IDND" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Repeat_Password" ColumnName="Repeat Password" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NOPDON">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.NOPDON">
+              <MappingFragment StoreEntitySet="NOPDON">
+                <ScalarProperty Name="IDDon" ColumnName="IDDon" />
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
+                <ScalarProperty Name="NguoiNop" ColumnName="NguoiNop" />
+                <ScalarProperty Name="CongTy" ColumnName="CongTy" />
+                <ScalarProperty Name="NgayNop" ColumnName="NgayNop" />
+                <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+                <ScalarProperty Name="Hanchot" ColumnName="Hanchot" />
+                <ScalarProperty Name="Yeucau" ColumnName="Yeucau" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Gioithieubanthan" ColumnName="Gioithieubanthan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinTuc">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.TinTuc">
+              <MappingFragment StoreEntitySet="TinTuc">
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
+                <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+                <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+                <ScalarProperty Name="Mucluong" ColumnName="Mucluong" />
+                <ScalarProperty Name="Khuvuc" ColumnName="Khuvuc" />
+                <ScalarProperty Name="Thoihan" ColumnName="Thoihan" />
+                <ScalarProperty Name="Hinhanh" ColumnName="Hinhanh" />
+                <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
+                <ScalarProperty Name="Yeucau" ColumnName="Yeucau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinTucTuyenDung">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.TinTucTuyenDung">
+              <MappingFragment StoreEntitySet="TinTucTuyenDung">
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
+                <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+                <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+                <ScalarProperty Name="Mucluong" ColumnName="Mucluong" />
+                <ScalarProperty Name="Khuvuc" ColumnName="Khuvuc" />
+                <ScalarProperty Name="Thoihan" ColumnName="Thoihan" />
+                <ScalarProperty Name="Yeucau" ColumnName="Yeucau" />
+                <ScalarProperty Name="Hinhanh" ColumnName="Hinhanh" />
+                <ScalarProperty Name="Uutien" ColumnName="Uutien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANHSACHDON">
+            <EntityTypeMapping TypeName="TUYENDUNGITModel.DANHSACHDON">
+              <MappingFragment StoreEntitySet="DANHSACHDON">
+                <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+                <ScalarProperty Name="NguoiNop" ColumnName="NguoiNop" />
+                <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+                <ScalarProperty Name="Mucluong" ColumnName="Mucluong" />
+                <ScalarProperty Name="Khuvuc" ColumnName="Khuvuc" />
+                <ScalarProperty Name="Thoihan" ColumnName="Thoihan" />
+                <ScalarProperty Name="Yeucau" ColumnName="Yeucau" />
+                <ScalarProperty Name="IDDon" ColumnName="IDDon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

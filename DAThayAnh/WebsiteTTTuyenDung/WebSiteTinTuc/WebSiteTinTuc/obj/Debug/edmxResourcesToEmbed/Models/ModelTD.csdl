@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TUYENDUNGITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="IDAD" />
+    </Key>
+    <Property Name="IDAD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CONGTY">
+    <Key>
+      <PropertyRef Name="IDCT" />
+    </Key>
+    <Property Name="IDCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tencongty" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="IDND" />
+    </Key>
+    <Property Name="IDND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Repeat_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NOPDON">
+    <Key>
+      <PropertyRef Name="IDDon" />
+    </Key>
+    <Property Name="IDDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTT" Type="Int32" />
+    <Property Name="NguoiNop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CongTy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayNop" Type="DateTime" Precision="3" />
+    <Property Name="Vitri" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Hanchot" Type="DateTime" Precision="3" />
+    <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Gioithieubanthan" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TinTuc">
+    <Key>
+      <PropertyRef Name="IDTT" />
+    </Key>
+    <Property Name="IDTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Vitri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mucluong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Thoihan" Type="DateTime" Precision="3" />
+    <Property Name="Hinhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayGui" Type="DateTime" Precision="3" />
+    <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TinTucTuyenDung">
+    <Key>
+      <PropertyRef Name="IDTT" />
+    </Key>
+    <Property Name="IDTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Vitri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mucluong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Thoihan" Type="DateTime" Precision="3" />
+    <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hinhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Uutien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DANHSACHDON">
+    <Key>
+      <PropertyRef Name="IDDon" />
+    </Key>
+    <Property Name="TenCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiNop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vitri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mucluong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Thoihan" Type="DateTime" Precision="3" />
+    <Property Name="Yeucau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDDon" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="TUYENDUNGITEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" />
+    <EntitySet Name="CONGTY" EntityType="Self.CONGTY" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="NOPDON" EntityType="Self.NOPDON" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TinTuc" EntityType="Self.TinTuc" />
+    <EntitySet Name="TinTucTuyenDung" EntityType="Self.TinTucTuyenDung" />
+    <EntitySet Name="DANHSACHDON" EntityType="Self.DANHSACHDON" />
+  </EntityContainer>
+</Schema>

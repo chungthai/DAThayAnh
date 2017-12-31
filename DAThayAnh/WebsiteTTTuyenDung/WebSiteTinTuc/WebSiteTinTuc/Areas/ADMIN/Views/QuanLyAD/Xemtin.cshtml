@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebSiteTinTuc.Models.TinTuc>
+
+@{
+    ViewBag.Title = "Xemtin";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Danh sách tin tức</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Themtintuc")
+</p>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TenCT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vitri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mucluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Khuvuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thoihan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hinhanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yeucau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayGui)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vitri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mucluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Khuvuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thoihan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hinhanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yeucau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayGui)
+            </td>
+            <td>
+                <input name="uutien" value="Nhập 1 nếu ưu tiên , Nhập 0 nếu không ưu tiên" />
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { @IDTT = item.IDTT }) |
+                @Html.ActionLink("Xóa", "Delete", new { @IDTT = item.IDTT }) |
+                @Html.ActionLink("Đăng tin", "DangTin", new { @IDTT = item.IDTT })
+               
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TUYENDUNGITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="IDAD" />
+    </Key>
+    <Property Name="IDAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tendangnhap" Type="varchar" MaxLength="50" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CONGTY">
+    <Key>
+      <PropertyRef Name="IDCT" />
+    </Key>
+    <Property Name="IDCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tendangnhap" Type="varchar" MaxLength="50" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+    <Property Name="Tencongty" Type="nvarchar" MaxLength="100" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="char" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="IDND" />
+    </Key>
+    <Property Name="IDND" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Repeat Password" Type="varchar" MaxLength="50" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="char" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="NOPDON">
+    <Key>
+      <PropertyRef Name="IDDon" />
+    </Key>
+    <Property Name="IDDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDTT" Type="int" />
+    <Property Name="NguoiNop" Type="nvarchar" MaxLength="50" />
+    <Property Name="CongTy" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgayNop" Type="datetime" />
+    <Property Name="Vitri" Type="nvarchar" MaxLength="100" />
+    <Property Name="Hanchot" Type="datetime" />
+    <Property Name="Yeucau" Type="ntext" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="char" MaxLength="20" />
+    <Property Name="Gioithieubanthan" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TinTuc">
+    <Key>
+      <PropertyRef Name="IDTT" />
+    </Key>
+    <Property Name="IDTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCT" Type="nvarchar" MaxLength="100" />
+    <Property Name="Vitri" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mucluong" Type="varchar" MaxLength="50" />
+    <Property Name="Khuvuc" Type="nvarchar" MaxLength="50" />
+    <Property Name="Thoihan" Type="datetime" />
+    <Property Name="Hinhanh" Type="varchar" MaxLength="50" />
+    <Property Name="NgayGui" Type="datetime" />
+    <Property Name="Yeucau" Type="ntext" />
+  </EntityType>
+  <EntityType Name="TinTucTuyenDung">
+    <Key>
+      <PropertyRef Name="IDTT" />
+    </Key>
+    <Property Name="IDTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCT" Type="nvarchar" MaxLength="100" />
+    <Property Name="Vitri" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mucluong" Type="nvarchar" MaxLength="100" />
+    <Property Name="Khuvuc" Type="nvarchar" MaxLength="50" />
+    <Property Name="Thoihan" Type="datetime" />
+    <Property Name="Yeucau" Type="ntext" />
+    <Property Name="Hinhanh" Type="varchar" MaxLength="50" />
+    <Property Name="Uutien" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TUYENDUNGIT.dbo.DANHSACHDON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DANHSACHDON">
+    <Key>
+      <PropertyRef Name="IDDon" />
+    </Key>
+    <Property Name="TenCT" Type="nvarchar" MaxLength="100" />
+    <Property Name="NguoiNop" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vitri" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mucluong" Type="nvarchar" MaxLength="100" />
+    <Property Name="Khuvuc" Type="nvarchar" MaxLength="50" />
+    <Property Name="Thoihan" Type="datetime" />
+    <Property Name="Yeucau" Type="ntext" />
+    <Property Name="IDDon" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="TUYENDUNGITModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONGTY" EntityType="Self.CONGTY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOPDON" EntityType="Self.NOPDON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinTuc" EntityType="Self.TinTuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinTucTuyenDung" EntityType="Self.TinTucTuyenDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHSACHDON" EntityType="Self.DANHSACHDON" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DANHSACHDON].[TenCT] AS [TenCT], 
+    [DANHSACHDON].[NguoiNop] AS [NguoiNop], 
+    [DANHSACHDON].[Vitri] AS [Vitri], 
+    [DANHSACHDON].[Mucluong] AS [Mucluong], 
+    [DANHSACHDON].[Khuvuc] AS [Khuvuc], 
+    [DANHSACHDON].[Thoihan] AS [Thoihan], 
+    [DANHSACHDON].[Yeucau] AS [Yeucau], 
+    [DANHSACHDON].[IDDon] AS [IDDon]
+    FROM [dbo].[DANHSACHDON] AS [DANHSACHDON]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

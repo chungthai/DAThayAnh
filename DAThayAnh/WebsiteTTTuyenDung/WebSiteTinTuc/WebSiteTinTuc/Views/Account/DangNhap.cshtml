@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập</title>
+    <link href="~/Content/Dangnhap.css" rel="stylesheet" />
+</head>
+<body class="align">
+
+    <div class="grid">
+
+        <div id="login">
+
+            <h2><span class="fontawesome-lock"></span>Sign In</h2>
+
+            <form action="#" method="POST">
+
+                <fieldset>
+                    @ViewBag.ThongBao
+                    <p><label for="email">User Name</label></p>
+                    <p><input name="username" type="email" id="email" placeholder="mail@address.com"></p>
+
+                    <p><label for="password">Password</label></p>
+                    <p><input name="password" type="password" id="password" placeholder="password"></p>
+
+                    <p><input type="submit" value="Sign In"></p>
+
+                </fieldset>
+
+            </form>
+
+        </div> <!-- end login -->
+
+    </div>
+
+</body>
+</html>
