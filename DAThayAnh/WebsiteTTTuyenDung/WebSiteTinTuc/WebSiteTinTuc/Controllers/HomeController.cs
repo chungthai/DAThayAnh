@@ -58,7 +58,6 @@ namespace WebSiteTinTuc.Controllers
 
             return RedirectToAction("TrangChu", "Home");
         }
-      
         public ActionResult DonNguoiDung()
         {
             return View();
@@ -71,7 +70,7 @@ namespace WebSiteTinTuc.Controllers
         public ActionResult XoaDonNguoiDung(int IDTT)
         {
             return View();
-          
+
         }
         [HttpPost, ActionName("XoaDonNguoiDung")]
         public ActionResult XacNhanXoa(int IDTT)
